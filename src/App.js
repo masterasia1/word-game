@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+
+  const [chosenLevel, setChosenLevel] = useState (null)
+  
+const getRandomWords = () => { 
+
+const options = {
+  method: 'GET',
+  url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
+  params: {level: chosenLevel, area: 'sat'},
+  headers: {
+    'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+    'X-RapidAPI-Host': 'twinword-word-association-quiz.p.rapidapi.com'
+  }
+}
+
+axios.request(options).then((response) => {
+	console.log(response.data)
+}).catch( (error) => {
+	console.error(error)
+})
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <select name='levels' id='levels' value={chosenLevel} onChange={(e) => setChosenLevel(e.target.value)}>
+        <option value='1'>Level 1</option>
+        <option value='1'>Level 2</option>
+        <option value='1'>Level 3</option>
+        <option value='1'>Level 4</option>
+        <option value='1'>Level 5</option>
+      </select>
     </div>
-  );
+);
 }
 
 export default App;
