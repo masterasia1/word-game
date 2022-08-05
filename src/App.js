@@ -27,10 +27,10 @@ axios.request(options).then((response) => {
     <div className="App">
       <select name='levels' id='levels' value={chosenLevel} onChange={(e) => setChosenLevel(e.target.value)}>
         <option value='1'>Level 1</option>
-        <option value='1'>Level 2</option>
-        <option value='1'>Level 3</option>
-        <option value='1'>Level 4</option>
-        <option value='1'>Level 5</option>
+        <option value='2'>Level 2</option>
+        <option value='3'>Level 3</option>
+        <option value='4'>Level 4</option>
+        <option value='5'>Level 5</option>
       </select>
     </div>
 );
